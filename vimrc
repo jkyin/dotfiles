@@ -1,26 +1,11 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: 
-"       Amir Salihefendic
-"       http://amix.dk - amix@amix.dk
+"       Jack Yin
+"       http://jkyin.me
+"       yinxiaoyu888@gmail.com
 "
 " Version: 
-"       5.0 - 29/05/12 15:43:36
-"
-" Blog_post: 
-"       http://amix.dk/blog/post/19691#The-ultimate-Vim-configuration-on-Github
-"
-" Awesome_version:
-"       Get this config, nice color schemes and lots of plugins!
-"
-"       Install the awesome version from:
-"
-"           https://github.com/amix/vimrc
-"
-" Syntax_highlighted:
-"       http://amix.dk/vim/vimrc.html
-"
-" Raw_version: 
-"       http://amix.dk/vim/vimrc.txt
+"       0.1.0
 "
 " Sections:
 "    -> General
@@ -43,6 +28,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set number
+
 " Sets how many lines of history VIM has to remember
 set history=700
 
@@ -69,6 +56,10 @@ command W w !sudo tee % > /dev/null
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Change insert mode cursor to vertical bar"
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
 
@@ -135,8 +126,10 @@ set foldcolumn=1
 " Enable syntax highlighting
 syntax enable 
 
+let base16colorspace=256  " Access colors present in 256 colorspace
+
 try
-    colorscheme desert
+    colorscheme base16-solarized
 catch
 endtry
 
